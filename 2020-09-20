@@ -1,0 +1,36 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+	cout << "请输入一个数字";
+	int n;
+	cin >> n;
+	cout << "请输入" << n << "个字符串";
+	string* a1=new string[n];  //定义一个字符串数组。
+	//cin >> a1[0] >> a1[1] >> a1[2] >> a1[3] >> a1[4]
+	for (int i = 0; i < n; i++)
+		cin >> a1[i];
+	int i, j;
+	string form;
+	for (i = 0; i < n-1; i++)   //通过冒泡排序进行排序
+	{
+		for (j = 0; j < n-1 - i; j++)
+		{
+			if (a1[j] > a1[j + 1])
+			{
+				form = a1[j];
+				a1[j] = a1[j + 1];
+				a1[j + 1] = form;
+			}
+		}
+	}
+	for (i = 0; i < n; i++)
+	{
+		cout << a1[i] << endl;
+	}
+	system("pause");
+	return 0;
+}
